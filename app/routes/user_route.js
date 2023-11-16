@@ -1,9 +1,14 @@
 //dependencies required
 import express from 'express';
-import { getUser } from '../controllers/user_controller.js'
+import { getUsers, postUser } from '../controllers/user_controller.js'
 
 //endpoints
 const routerUser = express.Router();
-routerUser.get('/user', getUser);
+
+//GET
+routerUser.get('/user', getUsers);
+
+//POST
+routerUser.post('/user', postUser);
 
 export { routerUser }; //export the routes

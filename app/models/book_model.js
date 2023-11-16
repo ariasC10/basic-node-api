@@ -1,19 +1,16 @@
 import mongoose from "mongoose"; //mongoDB lib
+const { Schema } = mongoose
 
 //book schema
-const BookSchema = new mongoose.Schema(
+const BookSchema = new Schema(
     {
         isbn: {
             type: String,
             unique: true,
             required: true
         },
-        name: {
-            type: String
-        },
-        release_date: {
-            type: String
-        }
+        name: String,
+        release_date: String
     }
 );
 

@@ -1,8 +1,13 @@
 import express from 'express';
-import { getBook } from '../controllers/book_controller.js';
+import { getBooks, postBook } from '../controllers/book_controller.js';
 
 //endpoints
 const routerBook = express.Router();
-routerBook.get('/book', getBook);
+
+//GET
+routerBook.get('/book', getBooks);
+
+//POST
+routerBook.post('/book', postBook);
 
 export { routerBook };//export the routes

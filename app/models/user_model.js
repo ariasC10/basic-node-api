@@ -1,19 +1,20 @@
 import mongoose from "mongoose"; //mongoDB lib
+const { Schema } = mongoose
 
 //user schema
-const UserSchema = new mongoose.Schema(
+const UserSchema = new Schema(
     {
-        name: {
-            type: String
-        },
+        name: String,
         email: {
             type: String,
             unique: true,
             required: true
         },
-        age: {
-            type: Number
-        }
+        age: Number
+    },
+    {
+        versionKey: false,
+        timestamps: true
     }
 );
 
