@@ -1,9 +1,14 @@
 import { Book } from "../models/book_model.js";
 
+const options= {
+    page: 1,
+    limit: 10
+}
+
 //GET books collection
 const getBooks = async (req, res)=>{
     try {
-        const data = await Book.find({});
+        const data = await Book.paginate({}, options);
         res.status(200).send({data: data});
     } catch (e) {
         res.status(400).send({error: e.message});
@@ -15,9 +20,9 @@ const postBook = async (req, res)=>{
     try {
         const data = req.body;
         const saveBook = await Book.create(data);
-        res.send({data: saveBook}, 200);
+        res.status(200).send({data: saveBook});
     } catch (e) {
-        res.send({error: e.message}, 400);
+        res.status(400).send({error: e.message});
     }
 }
 

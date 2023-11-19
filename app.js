@@ -11,7 +11,7 @@ const PORT = 3050;
 
 //initialize DB connection
 initDB();
-
+//body parsers
 app.use(
     bodyParser.json({
         limit:'40mb'
@@ -24,6 +24,8 @@ app.use(
         extended: true
     })
 );
+
+//router paths
 app.use(routerUser, routerBook);
 
 //base path
